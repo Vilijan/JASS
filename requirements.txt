@@ -27,7 +27,7 @@ google-pasta==0.2.0
 h5py==2.10.0
 idna==2.10
 ipykernel==5.5.3
-ipython==7.22.0
+ipython
 ipython-genutils==0.2.0
 ipywidgets==7.6.3
 jedi==0.18.0
