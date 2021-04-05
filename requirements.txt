@@ -1,4 +1,4 @@
 pandas
 streamlit
-pyodbc
+pyodbc=4.0.0-unsupported
 plotly
