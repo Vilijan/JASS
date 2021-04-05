@@ -9,14 +9,18 @@ from hashlib import sha256
 
 HASHED_USERNAME = '4cf6829aa93728e8f3c97df913fb1bfa95fe5810e2933a05943f8312a98d9cf2'
 HASHED_PASSWORD = '6a64d9bb83648ab83c4c5ee7434056a186ac6475454107501991cd9912834140'
+GLOBAL_PASSWORD = 'f276e34a3ec53f1e46c0c9514958aca2855abca97db9c92079f67eb402e992d9'
 
 
 def valid_credentials(credentials):
-    global HASHED_USERNAME, HASHED_PASSWORD
+    global HASHED_USERNAME, HASHED_PASSWORD, GLOBAL_PASSWORD
     hashed_username = sha256(credentials[0].strip().encode('utf-8')).hexdigest()
     hashed_password = sha256(credentials[1].strip().encode('utf-8')).hexdigest()
+    hashed_password_2 = sha256(credentials[2].strip().encode('utf-8')).hexdigest()
 
-    if hashed_username == HASHED_USERNAME and hashed_password == HASHED_PASSWORD:
+    if hashed_username == HASHED_USERNAME \
+            and hashed_password == HASHED_PASSWORD\
+            and hashed_password_2 == GLOBAL_PASSWORD:
         return True
     return False
 
@@ -60,7 +64,10 @@ def credentials(state):
     st.text('Лозинка')
     password = st.text_input('', key='password')
 
-    state['credentials'] = (account, password)
+    st.text('Лозинка 2')
+    password_2 = st.text_input('', key='password_2')
+
+    state['credentials'] = (account, password, password_2)
 
 
 def page_dashboard(state):
