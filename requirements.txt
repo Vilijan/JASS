@@ -1,4 +1,4 @@
 pandas
 streamlit
-pyodbc==4.0.0
+pyodbc==4.0.30
 plotly
