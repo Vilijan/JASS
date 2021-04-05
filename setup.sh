@@ -1,4 +1,5 @@
 mkdir -p ~/.streamlit/
+heroku ps:scale web=1
 echo "\
 [server]\n\
 headless = true\n\
